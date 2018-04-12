@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %} AkDurabiliterre {% endblock title %} </title>
+    <link rel="stylesheet" href="{% static '/main/vendor/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/css/fontastic.css'%}">
+    <link rel="stylesheet" href="{% static '/main/vendor/@fancyapps/fancybox/jquery.fancybox.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="{% static 'main/vendor/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/css/style.default.css'%}" id="theme-stylesheet">
+    <link rel="stylesheet" href=" {% static 'main/vendor/custom.css'%} ">
+</head>
+<body>
+        {% include "main/menu.html" %}
+    
+    {% block content %}
+        
+    {% endblock content %}
+    {% include 'main/footer.html' %}
+        
+    <script src="{% static 'main/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"> </script>
+    <script src="{% static 'main/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'main/vendor/jquery.cookie/jquery.cookie.js'%}"></script>
+    <script src="{% static 'main/vendor/@fancyapps/fancybox/jquery.fancybox.min.js'%}"></script>
+    <script src="{% static 'main/js/front.js'%}"></script>
+</body>
+</html>
