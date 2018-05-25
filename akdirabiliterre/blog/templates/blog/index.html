@@ -1,0 +1,71 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="container">
+        <div class="row ">
+          <!-- Latest Posts -->
+          <main class="posts-listing col-lg-8">
+            <div class="container">
+              <div class="row">
+                <!-- post -->
+                {% for post in posts %}
+                <div class="post col-xl-6">
+                  <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{post.cover.url}}" alt="..." class="img-fluid"></a></div>
+                  <div class="post-details">
+                    <div class="post-meta d-flex justify-content-between">
+                      <div class="date meta-last">{{post.created | date:"M d, Y"}}</div>
+                      <div class="category"><a href="#">{{post.category}}</a></div>
+                    </div><a href="{{ post.get_absolute_url }}">
+                      <h3 class="h4">{{post.title}}</h3></a>
+
+
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- post             -->
+
+              </div>
+
+            </div>
+          </main>
+          <aside class="col-lg-4">
+
+            <!-- Widget [Latest Posts Widget]        -->
+            <div class="widget latest-posts">
+              <header>
+                <h3 class="h6">Derniers Zooms</h3>
+              </header>
+              <div class="blog-posts">
+                {% for zoom in zooms  %}
+                <a href="#">
+                  <div class="item d-flex align-items-center">
+                    <div class="image"><img src="{{zoom.cover.url}}" alt="..." class="img-fluid"></div>
+                    <div class="title"><strong>{{zoom.title}}</strong>
+                      <div class="d-flex align-items-center">
+
+                        <div class="comments"><i class="icon-eye"></i>12</div>
+                      </div>
+                    </div>
+                  </div></a>
+
+                {% endfor %}
+
+                </div>
+            </div>
+            <!-- Widget [Categories Widget]-->
+            <div class="widget categories">
+              <header>
+                <h3 class="h6">Categories</h3>
+              </header>
+              <div class="item d-flex justify-content-between"><a href="#">Growth</a><span>12</span></div>
+              <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+              <div class="item d-flex justify-content-between"><a href="#">Sales</a><span>8</span></div>
+              <div class="item d-flex justify-content-between"><a href="#">Tips</a><span>17</span></div>
+              <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+
+{% endblock content %}

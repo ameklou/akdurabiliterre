@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'blog',
+    'zoom',
+    'presta',
+    'django_summernote',
+    'taggit',
 ]
 
 MIDDLEWARE = [

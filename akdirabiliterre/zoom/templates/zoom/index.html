@@ -1,0 +1,63 @@
+{% extends "main/base.html" %}
+{% block title %}AKDurabiliterre | Zoom {% endblock title %}
+
+{% block content %}
+<div class="container ">
+        <div class="row top">
+          <!-- Latest Posts -->
+          <main class="posts-listing col-lg-8">
+            <div class="container">
+              <div class="row">
+                <!-- post -->
+                {% for post in zooms %}
+                <div class="post col-xl-10">
+                  <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{post.cover.url}}" alt="..." class="img-fluid"></a></div>
+                  <div class="post-details">
+                    <div class="post-meta d-flex justify-content-between">
+                      <div class="date meta-last">{{post.created | date:"M d, Y"}}</div>
+                      <div class="category"><a href="#">{{post.category}}</a></div>
+                    </div><a href="{{post.get_absolute_url}}">
+                      <h3 class="h4">{{post.title}}</h3></a>
+                        <p class="text-muted"><strong>Architecte : </strong> <span>{{post.architect}} </span></p>
+                        <p class="text-muted"><strong>Localisation : </strong> <span>{{post.location}} </span></p>
+                        <p class="text-muted"><strong>Ingenieur : </strong> <span>{{post.engineer}} </span></p>
+                        <p class="text-muted"><strong>Designer : </strong> <span>{{post.designer}} </span></p>
+                        <p class="text-muted"><strong>Annee : </strong> <span>{{post.project_year}} </span></p>
+                        <p class="text-muted"><strong>Superficie : </strong> <span>{{post.site_area}} </span></p>
+
+
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- post             -->
+
+              </div>
+
+
+            </div>
+          </main>
+          <aside class="col-lg-4">
+
+            <!-- Widget [Latest Posts Widget]        -->
+            <div class="widget latest-posts">
+              <header>
+                <h3 class="h6">Derniers Articles</h3>
+              </header>
+              <div class="blog-posts"><a href="#">
+                {% for last in lasts%}
+                <div class="item d-flex align-items-center">
+                  <div class="item d-flex align-items-center">
+                    <div class="image"><img src="{{last.cover.url}}" alt="..." class="img-fluid"></div>
+                    <div class="title"><strong>{{last.title}}</strong>
+
+                    </div>
+                  </div></a></div>
+                </div></a><a href="#">
+                  {% endfor%}
+
+            </div>
+
+          </aside>
+        </div>
+      </div>
+{% endblock content %}
