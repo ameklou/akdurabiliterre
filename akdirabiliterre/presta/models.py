@@ -31,10 +31,10 @@ class Prestataire(models.Model):
     email=models.EmailField(max_length=250, blank=True, null=True)
     facebook=models.CharField(max_length=250, blank=True, null=True)
     twitter=models.CharField(max_length=250, blank=True, null=True)
-    city=models.CharField(max_length=250)
+    city=models.ForeignKey(Ville, related_name="presta_ville")
     country=CountryField()
-    latitude=models.DecimalField(max_digits=10, decimal_places=6)
-    longitude=models.DecimalField(max_digits=10, decimal_places=6)
+    latitude=models.DecimalField(max_digits=10, decimal_places=6, blank=True)
+    longitude=models.DecimalField(max_digits=10, decimal_places=6, blank=True)
     location=modes.PointField(null=True, blank=True)
     validate=models.BooleanField(default=True)
 
@@ -44,3 +44,8 @@ class Prestataire(models.Model):
 
     def get_absolute_url(self):
         return reverse('presta_detail',args=[self.slug, self.category,self.ville])
+
+    def save(self, *args, **kwargs):
+        self.latitude  = self.location.y
+        self.longitude = self.location.x
+        super(Prestataire, self).save(*args, **kwargs)

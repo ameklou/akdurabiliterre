@@ -1,13 +1,18 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from . models import Category, Prestataire, Ville
+from leaflet.admin import LeafletGeoAdmin
 # Register your models here.
 
-class PrestataireAdmin(SummernoteModelAdmin):
+class PrestataireAdmin(LeafletGeoAdmin,SummernoteModelAdmin):
+    settings_overrides = {
+       'DEFAULT_CENTER': (6.13, 1.22),
+       'DEFAULT_ZOOM':17
+    }
     list_display = ('title', 'slug', 'city', 'category')
     list_filter = ('title', 'slug', 'city', 'category')
     search_fields = ('title', 'Category','city')
-    prepopulated_fields = {'slug': ('title',),'longitude':('position.y',),'latitude':('position.x',)}
+    prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Prestataire, PrestataireAdmin)
 

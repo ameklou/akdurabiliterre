@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', views.index, name="index"),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'^zoom/', include('zoom.urls')),
+    url(r'^prestataire/', include('presta.urls')),
     url(r'^summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL,
                          document_root=settings.MEDIA_ROOT)

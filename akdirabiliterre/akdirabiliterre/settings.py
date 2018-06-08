@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'django_countries',
     'taggit',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
