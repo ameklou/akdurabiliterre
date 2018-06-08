@@ -1,0 +1,79 @@
+{% extends "main/base.html" %}
+{% load staticfiles%}
+{% block title %}AKDurabiliterre | Prestataires {% endblock title %}
+
+{% block content %}
+<div class="jumbotron presta">
+  <div class="row justify-content-center">
+    <h3 class="display-4">Trouver un prestataire</h3>
+  </div>
+  <div class="row justify-content-center">
+    <form action="{% url 'presta'%}" class="form-inline">
+
+    <!--   <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name">
+
+    <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="last_name" name="last_name"> -->
+    <div>
+      {{form.ville}}
+    </div>
+    <div>
+      {{form.category}}
+    </div>
+      <div><button type="submit" class="btn btn-brown mt-2 mt-sm-0">Rechercher</button></div>
+    </form>
+  </div>
+
+</div>
+<div class="row top">
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8">
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+
+              <!-- post             -->
+              {% for presta in prestatires %}
+              <div class="post col-xl-12 d-flex">
+                <div class="post-thumbnail col-xl-4"><a href="post.html"><img src="{% static 'main/img/logo2.png'%}" alt="..." class="img-fluid"></a></div>
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+
+                  </div><a href="post.html">
+                    <h3 class="h4">{{presta.title}}</h3></a>
+                    <div class="category"><a href="#">{{presta.category}}</a></div>
+                    <div class="category"><a href="#">{{presta.city}}</a></div>
+                    <div class=""><a href="#">{{presta.address}}</a></div>
+                    <div class="category"><a href="#">{{presta.phone_number}}</a></div>
+                  <div class="post-footer d-flex align-items-center">
+                      <a href="{{presta.get_absolute_url}}" class="btn btn-brown">Visiter la page</a>
+                  </div>
+                </div>
+              </div>
+
+
+              {% endfor %}
+          </div>
+        </main>
+        <aside class="col-lg-4">
+          <!-- Widget [Search Bar Widget]-->
+          <div class="widget search">
+            <header>
+              <h3 class="h6">Search the blog</h3>
+            </header>
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <input type="search" placeholder="What are you looking for?">
+                <button type="submit" class="submit"><i class="icon-search"></i></button>
+              </div>
+            </form>
+          </div>
+        
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,6 +1,12 @@
 /* your styles go here */
-.jumbotron{
-  height: 450px;
+.presta{
+  height: 250px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/main/img/presta2.jpg");
+  background-size:cover;
+  margin: 0;
+  border-radius: 0;
+  color: #fff;
+
 
 }
 .trait{
@@ -8,4 +14,32 @@
   background-color: #ececec;
   border: 1px solid #ececec;
   width: 100%;
+}
+.custom-select{
+  width: 20em;
+  font-size: 1em;
+}
+.custom-select option{
+  font-size: 1em;
+}
+.btn-brown{
+  background-color: #3E2723;
+  color: #fff;
+  z-index: 1;
+
+}
+
+.top{
+  margin-top: 2em;
+}
+.category{
+  flex:right;
+}
+.description{
+  border: 1px solid #fff;
+  background-color: #ececec;
+  padding: 1em;
+}
+#map{
+  height: 35em;
 }

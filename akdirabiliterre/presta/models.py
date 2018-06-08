@@ -28,6 +28,7 @@ class Prestataire(models.Model):
     description=models.TextField()
     logo=models.ImageField(upload_to="presta_logo")
     phone_number = PhoneNumberField()
+    address=models.CharField(max_length=250, blank=True, null=True)
     email=models.EmailField(max_length=250, blank=True, null=True)
     facebook=models.CharField(max_length=250, blank=True, null=True)
     twitter=models.CharField(max_length=250, blank=True, null=True)
@@ -43,7 +44,7 @@ class Prestataire(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('presta_detail',args=[self.slug, self.category,self.ville])
+        return reverse('presta_detail',args=[self.slug, self.category,self.city])
 
     def save(self, *args, **kwargs):
         self.latitude  = self.location.y
