@@ -1,6 +1,46 @@
 from django.db import models
-
+from phonenumber_field.modelfields import PhoneNumberField
+from django_countries.fields import CountryField
+from django.core.urlresolvers import reverse
+from django.contrib.gis.db import models as modes
 # Create your models here.
 class Category(models.Model):
     name=models.CharField(max_length=250)
     slug=models.SlugField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+
+class Ville(models.Model):
+    ville=models.CharField(max_length=250)
+    slug=models.SlugField(max_length=250)
+
+    def __str__(self):
+        return self.ville
+
+    # def get_absolute_url(self):
+    #     return reverse('zoom_detail', args=[self.slug])
+class Prestataire(models.Model):
+    title=models.CharField(max_length=250)
+    slug=models.SlugField(max_length=250)
+    category=models.ForeignKey(Category, on_delete=models.CASCADE)
+    description=models.TextField()
+    logo=models.ImageField(upload_to="presta_logo")
+    phone_number = PhoneNumberField()
+    email=models.EmailField(max_length=250, blank=True, null=True)
+    facebook=models.CharField(max_length=250, blank=True, null=True)
+    twitter=models.CharField(max_length=250, blank=True, null=True)
+    city=models.CharField(max_length=250)
+    country=CountryField()
+    latitude=models.DecimalField(max_digits=10, decimal_places=6)
+    longitude=models.DecimalField(max_digits=10, decimal_places=6)
+    location=modes.PointField(null=True, blank=True)
+    validate=models.BooleanField(default=True)
+
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('presta_detail',args=[self.slug, self.category,self.ville])

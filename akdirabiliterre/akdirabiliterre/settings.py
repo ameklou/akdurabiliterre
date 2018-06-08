@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'blog',
     'zoom',
     'presta',
+    'phonenumber_field',
     'django_summernote',
+    'django_countries',
     'taggit',
 ]
 
@@ -81,8 +83,12 @@ WSGI_APPLICATION = 'akdirabiliterre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'akdurabiliterre',
+        'USER': 'postgres',
+        'PASSWORD': 'open@bunshin',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
