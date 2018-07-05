@@ -9,7 +9,7 @@
   </div>
   <div class="row justify-content-center">
     <form action="{% url 'presta'%}" class="form-inline">
-
+      {% csrf_token %}
     <!--   <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name">
 
     <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="last_name" name="last_name"> -->
@@ -70,7 +70,7 @@
               </div>
             </form>
           </div>
-        
+
         </aside>
       </div>
     </div>
