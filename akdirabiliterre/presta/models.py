@@ -1,7 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.gis.db import models as modes
 # Create your models here.
 class Category(models.Model):
@@ -32,7 +32,7 @@ class Prestataire(models.Model):
     email=models.EmailField(max_length=250, blank=True, null=True)
     facebook=models.CharField(max_length=250, blank=True, null=True)
     twitter=models.CharField(max_length=250, blank=True, null=True)
-    city=models.ForeignKey(Ville, related_name="presta_ville")
+    city=models.ForeignKey(Ville, related_name="presta_ville", on_delete=models.CASCADE)
     country=CountryField()
     latitude=models.DecimalField(max_digits=10, decimal_places=6, blank=True)
     longitude=models.DecimalField(max_digits=10, decimal_places=6, blank=True)

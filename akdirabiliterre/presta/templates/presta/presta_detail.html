@@ -28,44 +28,42 @@
 
   <ul class="breadcrumb">
   <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
-  <li class="breadcrumb-item"><a href="{% url 'presta' %}">Fruit</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'presta' %}">Prestataires</a></li>
   <li class="breadcrumb-item active">{{presta.title}}</li>
   </ul>
 
 </div>
-<div class="row d-flex" >
-  <span class="display-4">{{presta.title}}</span>
-</div>
-<div class="container">
+<div class="container top">
   <div class="row">
-    <div class="post col-xl-12 d-flex">
+    <div class="col-lg-8 col-md-8 col-sm-12">
+      <div class="row">
 
-
-      <div class="col-xl-4">
-        <div>
-          <img src="{% static 'main/img/logo2.png'%}" alt="" class="img-fluid">
-
+        <div class="col-lg-4">
+          <img src="{{presta.logo.url}}" alt="..." class="img-fluid">
         </div>
-        <div id="map">
-
-        </div>
-      </div>
-      <div class="post-details col-xl-8">
-
-          <div class="row">
-
-            <div class="col-xl-12">
-              <div class="description">
-                {{presta.description | safe}}
-              </div>
-            </div>
+        <div class="col-lg-8">
+          <h5>{{presta.title}}</h5>
+          <div>
+            {{presta.description | safe}}
           </div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="col-lg-4 col-md-4">
+      <div id="map">
 
+      </div>
+      <div class="col-md-12 top">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+				</div>
+    </div>
   </div>
 </div>
+
 
 
 <script type="text/javascript">

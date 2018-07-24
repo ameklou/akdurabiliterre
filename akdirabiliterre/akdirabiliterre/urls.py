@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name="index"),
-    url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
+    url(r'^blog/', include('blog.urls')),
     url(r'^zoom/', include('zoom.urls')),
     url(r'^prestataire/', include('presta.urls')),
     url(r'^summernote/', include('django_summernote.urls')),

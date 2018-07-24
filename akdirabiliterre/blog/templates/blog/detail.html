@@ -30,7 +30,7 @@
 
                 <div class="post-tags">
                   {% for tag in post.tags.all %}
-                      <a class="tag" href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+                      <a class="tag" href="{% url "post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
                       {% if not forloop.last %}, {% endif %}
                   {% endfor %}
                 </div>
@@ -49,7 +49,7 @@
           </div>
         </main>
         <aside class="col-lg-4">
-        
+
           <!-- Widget [Latest Posts Widget]        -->
           <div class="widget latest-posts">
             <header>

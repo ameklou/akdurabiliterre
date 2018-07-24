@@ -24,56 +24,44 @@
   </div>
 
 </div>
-<div class="row top">
-  <div class="container">
-    <div class="container">
-      <div class="row">
-        <!-- Latest Posts -->
-        <main class="posts-listing col-lg-8">
-          <div class="container">
-            <div class="row">
-              <!-- post -->
 
-              <!-- post             -->
-              {% for presta in prestatires %}
-              <div class="post col-xl-12 d-flex">
-                <div class="post-thumbnail col-xl-4"><a href="post.html"><img src="{% static 'main/img/logo2.png'%}" alt="..." class="img-fluid"></a></div>
-                <div class="post-details">
-                  <div class="post-meta d-flex justify-content-between">
+  <div class="container top">
+    <div class="row">
+      {% for presta in prestatires %}
+      <div class="col-lg-3 col-md-3 col-sm-8">
 
-                  </div><a href="post.html">
-                    <h3 class="h4">{{presta.title}}</h3></a>
-                    <div class="category"><a href="#">{{presta.category}}</a></div>
-                    <div class="category"><a href="#">{{presta.city}}</a></div>
-                    <div class=""><a href="#">{{presta.address}}</a></div>
-                    <div class="category"><a href="#">{{presta.phone_number}}</a></div>
-                  <div class="post-footer d-flex align-items-center">
-                      <a href="{{presta.get_absolute_url}}" class="btn btn-brown">Visiter la page</a>
-                  </div>
+          <div class="card border-primary">
+              <img src="{{presta.logo.url}}" alt="..." class="img-fluid">
+            <div class="card-body">
+
+              <h5 class="card-title"><a href="{{presta.get_absolute_url}}">{{presta.title}}</a></h5>
+              <dl class="param param-feature">
+                <dd><i class="fas fa-folder-open"></i> {{presta.category}}</dd>
+                <dd><i class="fas fa-map-marker-alt"></i> {{presta.address}}</dd>
+              </dl>
+              </div>
+              <div class="card-footer text-muted">
+              <div class="row">
+                <div class="col">
+                  <a href=""><i class="fas fa-map"></i></a>
+                </div>
+                <div class="col">
+                  <a href="mailto:test@test.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="col">
+                  <a href="tel:+123456789"><i class="fas fa-globe"></i></a>
                 </div>
               </div>
-
-
-              {% endfor %}
-          </div>
-        </main>
-        <aside class="col-lg-4">
-          <!-- Widget [Search Bar Widget]-->
-          <div class="widget search">
-            <header>
-              <h3 class="h6">Search the blog</h3>
-            </header>
-            <form action="#" class="search-form">
-              <div class="form-group">
-                <input type="search" placeholder="What are you looking for?">
-                <button type="submit" class="submit"><i class="icon-search"></i></button>
-              </div>
-            </form>
+            </div>
           </div>
 
-        </aside>
+
+
       </div>
+      {% endfor%}
     </div>
+
   </div>
-</div>
+
+
 {% endblock content %}

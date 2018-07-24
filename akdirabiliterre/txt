@@ -1,0 +1,76 @@
+<div class="row top">
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="posts-listing col-lg-8">
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+
+              <!-- post             -->
+              {% for presta in prestatires %}
+              <div class="post col-xl-12 d-flex">
+                <div class="post-thumbnail col-xl-4"><a href="post.html"><img src="{% static 'main/img/logo2.png'%}" alt="..." class="img-fluid"></a></div>
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+
+                  </div><a href="post.html">
+                    <h3 class="h4">{{presta.title}}</h3></a>
+                    <div class="category"><a href="#">{{presta.category}}</a></div>
+                    <div class="category"><a href="#">{{presta.city}}</a></div>
+                    <div class=""><a href="#">{{presta.address}}</a></div>
+                    <div class="category"><a href="#">{{presta.phone_number}}</a></div>
+                  <div class="post-footer d-flex align-items-center">
+                      <a href="{{presta.get_absolute_url}}" class="btn btn-brown">Visiter la page</a>
+                  </div>
+                </div>
+              </div>
+
+
+              {% endfor %}
+          </div>
+        </main>
+
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="row d-flex" >
+  <h5 class="display-4">{{presta.title}}</h5>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="post col-xl-12 d-flex">
+
+
+      <div class="col-xl-4">
+        <div>
+          <img src="{% static 'main/img/logo2.png'%}" alt="" class="img-fluid">
+
+        </div>
+        <div id="map">
+
+        </div>
+      </div>
+      <div class="post-details col-xl-8">
+
+          <div class="row">
+
+            <div class="col-xl-12">
+              <div class="description">
+                {{presta.description | safe}}
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
