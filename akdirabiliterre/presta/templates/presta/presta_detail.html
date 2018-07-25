@@ -44,22 +44,31 @@
         <div class="col-lg-8">
           <h5>{{presta.title}}</h5>
           <div>
+            <dl class="param param-feature">
+              <dd><i class="fas fa-folder-open"></i> {{presta.category}}</dd>
+              <dd><i class="fas fa-envelope-open"></i> {{presta.email}}</dd>
+              <dd><i class="fas fa-map-marker-alt"></i> {{presta.country}}, {{presta.city}}</dd>
+              <dd><i class="fas fa-phone"></i> {{presta.phone_number}}</dd>
+            </dl>
             {{presta.description | safe}}
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-4">
+    <div class="col-lg-4 col-md-4 justify-content-center align-items-center">
       <div id="map">
 
       </div>
-      <div class="col-md-12 top">
-                    <ul class="social-network social-circle">
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-				</div>
+      <div class="justify-content-center align-items-center d-flex">
+        <div class="col-md-12 top ">
+            <ul class="social-network social-circle ">
+                <li><a href="{{presta.facebook}}" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="{{presta.twitter}}" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="{{presta.instagram}}" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="{{presta.site}}" class="icoRss" title="Instagram"><i class="fas fa-globe"></i></a></li>
+            </ul>
+  				</div>
+      </div>
     </div>
   </div>
 </div>
@@ -74,7 +83,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([{{presta.latitude}}, {{presta.longitude}}]).addTo(map)
-  .bindPopup("{{house.name}}")
+  .bindPopup("{{presta.title}} ")
   .openPopup();
 </script>
 {% endblock content %}

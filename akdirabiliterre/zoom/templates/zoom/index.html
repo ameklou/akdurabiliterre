@@ -45,14 +45,19 @@
               </header>
               <div class="blog-posts"><a href="#">
                 {% for last in lasts%}
-                <div class="item d-flex align-items-center">
+
+
+                </div></a><a href="{{last.get_absolute_url}}">
+
                   <div class="item d-flex align-items-center">
-                    <div class="image"><img src="{{last.cover.url}}" alt="..." class="img-fluid"></div>
-                    <div class="title"><strong>{{last.title}}</strong>
+                  <div class="image"><img src="{{last.cover.url}}" alt="..." class="img-fluid"></div>
+                  <div class="title"><a href="{{last.get_absolute_url}}"><strong>{{last.title}}</strong></a>
+                    <div class="d-flex align-items-center">
+                      <div class="views"><i class="icon-clock"></i> {{last.created | date:"M d, Y"}}</div>
 
                     </div>
-                  </div></a></div>
-                </div></a><a href="#">
+                  </div>
+                </div></a><a href="{{last.get_absolute_url}}">
                   {% endfor%}
 
             </div>

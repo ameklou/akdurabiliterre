@@ -17,6 +17,12 @@
                       <div class="category"><a href="#">{{post.category}}</a></div>
                     </div><a href="{{ post.get_absolute_url }}">
                       <h3 class="h4">{{post.title}}</h3></a>
+                      <p class="text-muted">
+                        {% autoescape off %}
+                            {{post.body | truncatechars:300}}
+                        {% endautoescape %}
+
+                        </p>
 
 
                   </div>
@@ -43,7 +49,7 @@
                     <div class="title"><strong>{{zoom.title}}</strong>
                       <div class="d-flex align-items-center">
 
-                        <div class="comments"><i class="icon-eye"></i>12</div>
+                        <div class="comments"><i class="icon-eyew"></i></div>
                       </div>
                     </div>
                   </div></a>
